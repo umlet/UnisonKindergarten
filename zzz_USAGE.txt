@@ -1,0 +1,22 @@
+
+
+
+# 1 command line
+uu -c mydir --cd base --ls --def 'f x y = y' --def 'g x y = y' [--parse] --add
+
+
+# 2 julia REPL
+UNI = Uni("mydir")
+cd(".base")
+u"f x y = x" |> add|update     # ??? maybe always parse ???
+ud"f x y = x" |> add|update
+uw"f 3 4"
+###UniDef("f x y = x") |> parse |> add
+###UniWatch
+
+# 3 uni repl
+uni::mydir::base>
+cd base
+ls
+f x y = x
+f 3 4
