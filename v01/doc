@@ -1,0 +1,94 @@
+
+  [0m[90m1.[0m  ++                     (Bytes [0m[90m->[0m Bytes [0m[90m->[0m Bytes)
+  [0m[90m2.[0m  ++/                    [0m[90m(1 term)[0m
+  [0m[90m3.[0m  at                     (Nat [0m[90m->[0m Bytes [0m[90m->[0m Optional Nat)
+  [0m[90m4.[0m  at/                    [0m[90m(1 term)[0m
+  [0m[90m5.[0m  at!                    (Nat [0m[90m->[0m Bytes [0m[90m->{[0mAbort[0m[90m}[0m Nat)
+  [0m[90m6.[0m  at!/                   [0m[90m(1 term)[0m
+  [0m[90m7.[0m  base32Hex              (Bytes [0m[90m->[0m Text)
+  [0m[90m8.[0m  base32Hex/             [0m[90m(11 terms, 1 type)[0m
+  [0m[90m9.[0m  decodeNat16be          (Bytes [0m[90m->[0m Optional (Nat, Bytes))
+  [0m[90m10.[0m decodeNat16be/         [0m[90m(1 term)[0m
+  [0m[90m11.[0m decodeNat16le          (Bytes [0m[90m->[0m Optional (Nat, Bytes))
+  [0m[90m12.[0m decodeNat16le/         [0m[90m(1 term)[0m
+  [0m[90m13.[0m decodeNat16sbe         (Nat [0m[90m->[0m Bytes [0m[90m->[0m ([Nat], Bytes))
+  [0m[90m14.[0m decodeNat16sbe/        [0m[90m(1 term)[0m
+  [0m[90m15.[0m decodeNat32be          (Bytes [0m[90m->[0m Optional (Nat, Bytes))
+  [0m[90m16.[0m decodeNat32be/         [0m[90m(1 term)[0m
+  [0m[90m17.[0m decodeNat32le          (Bytes [0m[90m->[0m Optional (Nat, Bytes))
+  [0m[90m18.[0m decodeNat32le/         [0m[90m(1 term)[0m
+  [0m[90m19.[0m decodeNat32sbe         (Nat [0m[90m->[0m Bytes [0m[90m->[0m ([Nat], Bytes))
+  [0m[90m20.[0m decodeNat32sbe/        [0m[90m(1 term)[0m
+  [0m[90m21.[0m decodeNat64be          (Bytes [0m[90m->[0m Optional (Nat, Bytes))
+  [0m[90m22.[0m decodeNat64be/         [0m[90m(1 term)[0m
+  [0m[90m23.[0m decodeNat64le          (Bytes [0m[90m->[0m Optional (Nat, Bytes))
+  [0m[90m24.[0m decodeNat64le/         [0m[90m(1 term)[0m
+  [0m[90m25.[0m decodeNat64sbe         (Nat [0m[90m->[0m Bytes [0m[90m->[0m ([Nat], Bytes))
+  [0m[90m26.[0m decodeNat64sbe/        [0m[90m(1 term)[0m
+  [0m[90m27.[0m doc                    (Doc)
+  [0m[90m28.[0m drop                   (Nat [0m[90m->[0m Bytes [0m[90m->[0m Bytes)
+  [0m[90m29.[0m drop/                  [0m[90m(1 term)[0m
+  [0m[90m30.[0m empty                  (Bytes)
+  [0m[90m31.[0m empty/                 [0m[90m(1 term)[0m
+  [0m[90m32.[0m encodeNat16be          (Nat [0m[90m->[0m Bytes)
+  [0m[90m33.[0m encodeNat16be/         [0m[90m(1 term)[0m
+  [0m[90m34.[0m encodeNat16le          (Nat [0m[90m->[0m Bytes)
+  [0m[90m35.[0m encodeNat16le/         [0m[90m(1 term)[0m
+  [0m[90m36.[0m encodeNat32be          (Nat [0m[90m->[0m Bytes)
+  [0m[90m37.[0m encodeNat32be/         [0m[90m(1 term)[0m
+  [0m[90m38.[0m encodeNat32le          (Nat [0m[90m->[0m Bytes)
+  [0m[90m39.[0m encodeNat32le/         [0m[90m(1 term)[0m
+  [0m[90m40.[0m encodeNat64be          (Nat [0m[90m->[0m Bytes)
+  [0m[90m41.[0m encodeNat64be/         [0m[90m(1 term)[0m
+  [0m[90m42.[0m encodeNat64le          (Nat [0m[90m->[0m Bytes)
+  [0m[90m43.[0m encodeNat64le/         [0m[90m(1 term)[0m
+  [0m[90m44.[0m flatten                (Bytes [0m[90m->[0m Bytes)
+  [0m[90m45.[0m flatten/               [0m[90m(1 term)[0m
+  [0m[90m46.[0m fromBase16             (Bytes [0m[90m->[0m Either Text Bytes)
+  [0m[90m47.[0m fromBase16/            [0m[90m(1 term)[0m
+  [0m[90m48.[0m fromBase32             (Bytes [0m[90m->[0m Either Text Bytes)
+  [0m[90m49.[0m fromBase32/            [0m[90m(1 term)[0m
+  [0m[90m50.[0m fromBase32Hex          (Bytes [0m[90m->[0m Either Text Bytes)
+  [0m[90m51.[0m fromBase32Hex/         [0m[90m(10 terms)[0m
+  [0m[90m52.[0m fromBase64             (Bytes [0m[90m->[0m Either Text Bytes)
+  [0m[90m53.[0m fromBase64/            [0m[90m(1 term)[0m
+  [0m[90m54.[0m fromBase64UrlUnpadded  (Bytes [0m[90m->[0m Either Text Bytes)
+  [0m[90m55.[0m fromBase64UrlUnpadded/ [0m[90m(1 term)[0m
+  [0m[90m56.[0m fromHex                (Text [0m[90m->[0m Either Text Bytes)
+  [0m[90m57.[0m fromList               ([Nat] [0m[90m->{[0mException[0m[90m}[0m Bytes)
+  [0m[90m58.[0m fromList/              [0m[90m(2 terms)[0m
+  [0m[90m59.[0m gzip/                  [0m[90m(4 terms)[0m
+  [0m[90m60.[0m indexOf                (Bytes [0m[90m->[0m Bytes [0m[90m->[0m Optional Nat)
+  [0m[90m61.[0m indexOf/               [0m[90m(1 term)[0m
+  [0m[90m62.[0m isEmpty                (Bytes [0m[90m->[0m Boolean)
+  [0m[90m63.[0m isEmpty/               [0m[90m(1 term)[0m
+  [0m[90m64.[0m shiftLeft              (Nat [0m[90m->[0m Bytes [0m[90m->[0m Bytes)
+  [0m[90m65.[0m shiftLeft/             [0m[90m(1 term)[0m
+  [0m[90m66.[0m shiftRight             (Nat [0m[90m->[0m Bytes [0m[90m->[0m Bytes)
+  [0m[90m67.[0m shiftRight/            [0m[90m(1 term)[0m
+  [0m[90m68.[0m size                   (Bytes [0m[90m->[0m Nat)
+  [0m[90m69.[0m size/                  [0m[90m(1 term)[0m
+  [0m[90m70.[0m take                   (Nat [0m[90m->[0m Bytes [0m[90m->[0m Bytes)
+  [0m[90m71.[0m take/                  [0m[90m(1 term)[0m
+  [0m[90m72.[0m toBase16               (Bytes [0m[90m->[0m Bytes)
+  [0m[90m73.[0m toBase16/              [0m[90m(1 term)[0m
+  [0m[90m74.[0m toBase32               (Bytes [0m[90m->[0m Bytes)
+  [0m[90m75.[0m toBase32/              [0m[90m(1 term)[0m
+  [0m[90m76.[0m toBase32Hex            (Bytes [0m[90m->[0m Bytes)
+  [0m[90m77.[0m toBase32Hex/           [0m[90m(2 terms)[0m
+  [0m[90m78.[0m toBase64               (Bytes [0m[90m->[0m Bytes)
+  [0m[90m79.[0m toBase64/              [0m[90m(1 term)[0m
+  [0m[90m80.[0m toBase64UrlUnpadded    (Bytes [0m[90m->[0m Bytes)
+  [0m[90m81.[0m toBase64UrlUnpadded/   [0m[90m(1 term)[0m
+  [0m[90m82.[0m toHex                  (Bytes [0m[90m->[0m Text)
+  [0m[90m83.[0m toHex/                 [0m[90m(1 term)[0m
+  [0m[90m84.[0m toList                 (Bytes [0m[90m->[0m [Nat])
+  [0m[90m85.[0m toList/                [0m[90m(1 term)[0m
+  [0m[90m86.[0m toNat64sbe             (Bytes [0m[90m->[0m ([Nat], Bytes))
+  [0m[90m87.[0m toNat64sbe/            [0m[90m(1 term)[0m
+  [0m[90m88.[0m truncateLeft           (Nat [0m[90m->[0m Bytes [0m[90m->[0m Bytes)
+  [0m[90m89.[0m truncateLeft/          [0m[90m(1 term)[0m
+  [0m[90m90.[0m truncateRight          (Nat [0m[90m->[0m Bytes [0m[90m->[0m Bytes)
+  [0m[90m91.[0m truncateRight/         [0m[90m(1 term)[0m
+  [0m[90m92.[0m zlib/                  [0m[90m(4 terms)[0m
+[0m
