@@ -4,6 +4,8 @@
 
 *We use `ucm` 0.5.25. Code here still breaks easily on version changes.*
 
+*The code below is in bash_scripts. Ignore the old Julia code in the other dirs for now; it still uses stanzas..*
+
 <br>
 
 ## A Motivating Example
