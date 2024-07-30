@@ -20,7 +20,7 @@ Behold `bash` as Unison REPL:
 $ echo $0
 -bash
 $ ucb
-/home/martin/unisandbox/MyUnisonCodebase
+ERROR: ucb: no codebase set; set with 'ucb <codebase>' or create with 'ucb -C <codebase>'
 $ ucb -C MyUnisonCodebase
 codebase created; installing standard lib -- this may take a few minutes..
   Downloaded 3633 entities.
