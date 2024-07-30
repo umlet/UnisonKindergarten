@@ -10,7 +10,7 @@
 
 We try to cajole **Unison**'s `ucm` codebase manager to act as a REPL, mainly for educational (well, mostly mine) purposes. Our gold standard is **Julia**'s outstanding REPL -- I would encourage you to quickly install it and play around with it for 10 minutes; you'll see why. In fact, we plan to effectively *skin* the Julia REPL into a Unison one.
 
-As an intermdeiate learning step, we hacked together a few bash wrapper scripts around `ucm`. The scripts are named like their standard Unix counterparts, prefixed with "u" -- `uls`, for example, lists the terms of the current Unison namespace. Just put this repo's `bash_scripts` subdir into your PATH. (The "new" `ucb` creates and activates codebases.) The rest is self-explatory, ha ha.
+As an intermediate learning step, we hacked together a few bash wrapper scripts around `ucm`. The scripts are named like their standard Unix counterparts, prefixed with "u" -- `uls`, for example, lists the terms of the current Unison namespace. Just put this repo's `bash_scripts` subdir into your PATH. (The "new" `ucb` creates and activates codebases.) The rest is self-explatory, ha ha.
 
 Behold `bash` as Unison REPL:
 
@@ -76,7 +76,7 @@ $ ufind .  |  grep hello
 
 ### Notes:
 
-* move became mv
+* move became mv; later, delete might become (u)rm; delete.namespace -> `(u)rm namespace.` -- the final dot denoting a namespace like a `subdir/` in Unix
 
 * find operates, by default, with the Unix logic, with `.` meaning root in the Unison context
 
