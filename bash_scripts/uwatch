@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Evaluates a watch expression in Unison.
+
+Usage:
+> uwatch '1 + 1'
+> uwatch  1 + 1         # if bash does not intervene you can omit the ''
+"
+(( $# == 0 ))                                       &&  uexit
+
+
+echo "> $@" > uwatch.u
+
+echo "load uwatch.u" | _ucm0 > uwatch.stdout
+
+OK=`grep '1 | >' < uwatch.stdout | wc -l`
+if (( OK > 0 )); then
+    cat uwatch.stdout \
+    | awk '/1 | >/ {found=1} found' \
+    | tail -n -2 \
+    | head -n -1 \
+    | ltrim.sh
+    exit 0
+fi
+
+
+cat uwatch.stdout | grep -v 'Loading changes' >&2
+aexit "uwatch: failed"

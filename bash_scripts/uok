@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+
+# OK:ucm
+ucm --no-file-watch --version > /dev/null 2>&1  ||  eexit "UCM not installed"
+

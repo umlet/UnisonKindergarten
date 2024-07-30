@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Lists terms in Unison codebase.
+
+Usage:
+> uls
+> uls .base.lib TODO
+
+> uls -h             # show usage
+"
+(( $# >= 2 ))                                       &&  uexit
+[[ $# == 1  && ($1 == "-h" || $1 == "--help") ]]    &&  uexit
+
+
+echo "ls" | _ucm0 | deprompt.sh | grep -v 'nothing to show'
+

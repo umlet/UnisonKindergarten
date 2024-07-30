@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Runs a program in Unison.
+
+Usage:
+> urun helloWorld
+"
+(( $# == 0 ))                                       &&  uexit
+
+
+
+CODEBASE=`ucb`  ||  exit 99
+#OK:ucm -- _ucm0 does not work: 'run' parsed incorrectly after '--no-file-watch' there; and cleaner scripts should not be called anyway
+
+# TODO feedback, as NO LONGER SUPPORTED
+#ucm -c "${CODEBASE}" run "$@"
+
+echo "run $@" | _ucm0 > urun.stdout
+
+NOTOK=0
+NOTOK=`cat urun.stdout | grep 'I looked for' | wc -l`
+if (( NOTOK > 0 )); then
+    cat urun.stdout | deprompt.sh
+    eexit "urun: failed"
+fi
+
+cat urun.stdout | sed 's/^[^[:space:]]*> //' | head -n -2
+

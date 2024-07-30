@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Renames a Unison term.
+
+Usage:
+> umv myFunction myNewFunction
+"
+(( $# != 2 ))  &&  uexit
+
+echo "move ${1} ${2}" | _ucm0 | deprompt.sh
+

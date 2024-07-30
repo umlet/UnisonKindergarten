@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Finds Unison terms.
+
+Usage:
+> ufind somedir
+"
+(( $# == 0 ))  &&  uexit
+
+# TODO pipe breaks with, eg, '| head -n5'; that's why we use cat reduntantly
+echo "find-in.all $@" | _ucm0 | deprompt.sh > ufind.stdout  &&  cat ufind.stdout
+

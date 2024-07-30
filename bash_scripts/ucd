@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Changes current Unison codebase path.
+
+Usage:
+> ucd mynamespace
+> ucd                # change path to root/=.
+
+> ucd --help|-h      # show usage
+"
+(( $# >= 2 ))  &&  uexit
+[[ $# == 1  && ($1 == "-h" || $1 == "--help") ]]    &&  uexit
+
+
+
+
+DIR="."
+(( $# == 1 ))  &&  DIR="${1}"
+
+# TODO re-undeprecate!!!
+echo "deprecated.cd ${DIR}" | _ucm0 > ucd.stdout
+
+# expected:
+# - one line with two prompts separated by space
+# - or 3 lines for empty namespaces
+# - or error message
+
+N=`wc -l <ucd.stdout`
+(( $N == 1 ))  &&  exit 0
+
+if (( $N == 3 )); then
+    LINE=`grep 'is empty.' ucd.stdout`
+    # not empty?
+    [[ -n "${LINE}" ]]  &&  { echo "${LINE:10:-1}";  exit 0; }
+fi
+
+eecho "ERROR: UCM:"
+deprompt.sh <ucd.stdout >&2
+exit 99
+

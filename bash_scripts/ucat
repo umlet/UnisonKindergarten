@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Shows a Unison term definition.
+
+Usage:
+> ucat myFunction
+"
+(( $# != 1 ))  &&  uexit
+
+echo "display ${1}" | _ucm0 | deprompt.sh
+

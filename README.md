@@ -163,7 +163,7 @@ The structure of terms in Unison namespaces is ideal for using the file system m
 
 Our code is usually strctured linearly, as code blocks in a file. We often have sequences of conceptually different code block types -- comments, docstrings, happy-path code, error-handling code, module exports..
 
-It would be great if we could arrange these blocks in a 2D view. Imagine an Excel with large cells, each containing a function, its docstring, an error-check for that function's arguments.. We would arrange these in a 2D grid that allows for easy consistency checks, with minimal vertical scrolling:
+It would be great if we could arrange these blocks in a 2D view. Imagine an Excel with large cells, each containing a function, its docstring, an error-check for that function's arguments.. We would arrange these in a 2D grid that allows for easy consistency checks, with minimal vertical scrolling (see sidenote below):
 
 ```
 /*happy*/         /*doc str*/ /*sad-path*/
@@ -183,6 +183,9 @@ We can only emulate such structures, eg, in whitespace-oblivious languages like 
 (Now, true, `cd` is no longer needed here. But I think the crack of `cd` would be helpful for learners; later they will buy the cocaine of `deploy.all PROD`. PLEASE PLEASE?)
 
 
-## Sidenote on Vertical Scrolling
+### Sidenote on Vertical Scrolling
 
-2D-Coding also alleviates another problem of linear sequences of code blocks: vertical scrolling. 
+2D-Coding also alleviates another problem of linear sequences of code blocks: vertical scrolling. Death to it.
+
+Even if we split our code into somewhat manageable files, we find ourselves continuously scrolling hither and tither, visually grasping at code structures for orientation, ever skimming and scanning, the sorry twins of micro-drains on our concentration. I rest my case.
+

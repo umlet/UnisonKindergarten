@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+
+CODEBASE=`ucb`  ||  exit 99
+
+# OK:ucm
+ucm --no-file-watch --codebase "${CODEBASE}" "$@" | decolor.sh | rtrim.sh | nl.sh | behead.sh
+

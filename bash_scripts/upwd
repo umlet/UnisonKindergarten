@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#. ucommon.sh
+
+
+# OK:ucm0
+UPWD=`_ucm0 </dev/null | tail -n1 | cut -d'>' -f1`  ||  exit 99
+
+echo "${UPWD}"
+

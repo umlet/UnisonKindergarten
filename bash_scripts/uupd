@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Adds a new Unison Term to the codebase.
+
+Usage:
+> uupd 'myvar = 42'
+"
+(( $# == 0 ))  &&  uexit
+
+
+
+
+OK=`udef "$@"`  ||  { exit 99; }
+
+[[ "${OK}" == *ADD* ]]      &&  eexit "uupd: term does not exists; use 'uadd' instead of 'uupd'"
+
+[[ "${OK}" != *UPDATE* ]]   &&  aexit "uupd: unexpected response -- no def error, no ADD recommand, but not UPDATE-denoted as expected"
+
+
+
+echo "$@" > uupd.u
+
+echo -e "load uupd.u\nupdate" | _ucm0 > uupd.stdout
+
+
+OK=`cat uupd.stdout | grep 'needs to be updated' | wc -l`
+if (( OK > 0 )); then
+    echo "term definition updated"
+    exit 0
+fi
+
+cat uupd.stdout >&2
+aexit "uupd: unexpected response"
+
+

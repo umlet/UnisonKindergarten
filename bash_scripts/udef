@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Defines a new Unison Term without adding it to the codebase.
+
+Usage:
+> udef 'myvar = 42'
+> udef  myvar = 42              # if bash does not intervene you can omit the ''
+> udef 'myvar = \"forty-two\"'    # '' required here to preserve the \"\"
+
+> udef --help|-h                # show usage
+"
+(( $# == 0 ))                                       &&  uexit
+[[ $# == 1  && ($1 == "-h" || $1 == "--help") ]]    &&  uexit
+
+
+
+
+echo "$@" > udef.u
+
+echo "load udef.u" | _ucm0 > udef.stdout
+
+ONE_ADDABLE=`cat udef.stdout | grep 'These new definitions are ok to' | grep 'add' | wc -l`
+ONE_UPDABLE=`cat udef.stdout | grep 'These names already exist' | wc -l`
+
+if      (( ONE_ADDABLE > 0 )); then
+    echo "new term definition OK; you can ADD it with 'uadd'"
+    exit 0
+elif    (( ONE_UPDABLE > 0 )); then
+    echo "term re-definition OK; you can UPDATE it with 'uupd'"
+    exit 0
+fi
+
+cat udef.stdout >&2
+aexit "udef: unexpected response"

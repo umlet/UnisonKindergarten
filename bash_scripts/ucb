@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+. ucommon.sh
+
+_USAGE="
+Shows, sets, or creates+sets the current Unison codebase.
+
+Usage:
+> ucb                           # show current codebase
+> ucb    my_codebase_dir        # set current codebase to existing codebase dir
+> ucb -C my_new_codebase_dir    # create new codebase, install std lib, and set as current
+
+> ucb --help|-h                 # show usage
+"
+(( $# > 2 ))                                        &&  uexit
+[[ $# == 1  && ($1 == "-h" || $1 == "--help") ]]    &&  uexit
+[[ $# == 2  &&  $1 != "-C" ]]                       &&  uexit
+
+
+
+
+# check if installed
+# OK:ucm
+ucm --no-file-watch --version > /dev/null 2>&1                                      ||  eexit "ucb: UCM not installed"
+
+check_filecodebase_exit() {
+    [[ -f "${1}" ]]                                                                 ||  eexit "ucb: no codebase set; set with 'ucb <codebase>' or create with 'ucb -C <codebase>'"
+}
+check_codebase_dir_exit() {
+    [[ -d "${1}" ]]                                                                 ||  eexit "ucb: current codebase dir '${1}' not found; set with 'ucb <codebase>' or create with 'ucb -C <codebase>'"
+}
+check_codebase_valid_exit() {
+    # OK:ucm
+    ucm --no-file-watch --codebase "${1}" --exit > /dev/null 2>&1                   ||  eexit "ucb: dir '${1}' not a valid codebase; create with 'ucb -C <codebase>'"
+}
+check_codebase_created_exit() {
+    # OK:ucm
+    ucm --no-file-watch --codebase-create "${CODEBASE}" --exit > /dev/null 2>&1     ||  eexit "ucb: error in creating new codebase '${CODEBASE}'; try 'ucm --codebase-create <codebase>'"
+}
+
+
+FILE_CODEBASE="${HOME}/.ucmfront.codebase"
+
+
+# get current codebase ("upwc"):
+if (( $# == 0 )); then
+    check_filecodebase_exit "${FILE_CODEBASE}"
+
+    CODEBASE=`head -n1 "${FILE_CODEBASE}"`
+    check_codebase_dir_exit "${CODEBASE}"
+    check_codebase_valid_exit "${CODEBASE}"
+    echo "${CODEBASE}"
+elif (( $# == 1 )); then
+    # set:
+    CODEBASE=`realpath ${1}`
+    check_codebase_dir_exit "${CODEBASE}"
+    check_codebase_valid_exit "${CODEBASE}"
+
+    echo "${CODEBASE}" > "${FILE_CODEBASE}"
+    echo "current codebase: ${CODEBASE}"
+elif (( $# == 2 )); then
+    # create:
+    CODEBASE=`realpath ${2}`
+    check_codebase_created_exit "${CODEBASE}"
+
+    echo "${CODEBASE}" > "${FILE_CODEBASE}"
+
+    # install lib
+    echo "codebase created; installing standard lib -- this may take a few minutes.."
+    echo "lib.install @unison/base" | _ucm0 | deprompt.sh
+    echo "current codebase: ${CODEBASE}"
+fi
+
+
+
+
