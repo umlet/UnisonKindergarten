@@ -156,7 +156,7 @@ u> sqr 2
 
 Unison has a clever way of enumerating (Gödel-like) code. This frees the layer of human-readable names from indexing and referencing code, to serving but one master -- the human. We can finally name and re-name galore! (One-time unit testing, distributed systems, never-broken codebases of course are also nice to have, but NAMING, my Gods..)
 
-The structure of terms in Unison namespaces is ideal for using the file system metaphors. Unison can leverage million-ennia of muscle memory.
+The structure of terms in Unison namespaces is ideal for using the file system metaphors. Unison can leverage million-ennia of developers' muscle memory.
 
 <br>
 <br>
