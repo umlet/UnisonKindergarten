@@ -129,7 +129,7 @@ A few wishes for `ucm`:
 
 ## Next Up
 
-This is mainly a dryrun. We'd next like to comine the `urun`, `uwatch`, `uadd`, and `uupd` commands into a single `u` command, that automatically detect term definitions or expressions, and just "does the right thing":
+This is mainly a dryrun. We'd next like to combine the `urun`, `uwatch`, `uadd`, and `uupd` commands into a single `u` command, that automatically detect term definitions or expressions, and just "does the right thing":
 
 ```
 $ u 1+1
@@ -139,7 +139,7 @@ $ u sqr 2
 4
 ```
 
-This, in turn, hopefully leads to full REPL (a Julia mode most likely) -- with `u>` prompt (or current namespace):
+This, in turn, hopefully leads to full REPL (a Julia REPL mode most likely) -- with `u>` prompt (or current namespace):
 
 ```
 u> 1+1
