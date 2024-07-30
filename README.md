@@ -161,7 +161,7 @@ The structure of terms in Unison namespaces is ideal for using the file system m
 
 ## 2D-Coding
 
-Our code is usually strctured linearly, as code blocks in a file. We often have sequences of conceptually different code block types -- comments, docstrings, happy-path code, error-handling code, module exports..
+Our code is usually structured linearly, as code blocks in a file. We often have sequences of conceptually different code block types -- comments, docstrings, happy-path code, error-handling code, module exports..
 
 It would be great if we could arrange these blocks in a 2D view. Imagine an Excel with large cells, each containing a function, its docstring, an error-check for that function's arguments.. We would arrange these in a 2D grid that allows for easy consistency checks, with minimal vertical scrolling (see sidenote below):
 
@@ -178,7 +178,7 @@ func A(x,y):     | A:doc"A bla | func checkA(x,y): | // TODO
 ...
 ```
 
-We can only emulate such structures, eg, in whitespace-oblivious languages like C++, by indenting, putting comments to the right, using a custom preprocessor or to-be-written IDE plugins.. A structured language like Unison could provide a super-framework for such an IDE.
+We can only emulate such structures, eg, in whitespace-oblivious languages like C++, by indenting, putting comments to the right, using a custom preprocessor or to-be-written IDE plugins.. A structured language like Unison could provide a super-framework for such an IDE -- we just put an additional "add/update" button inside each cell and voilà.
 
 (Now, true, `cd` is no longer needed here. But I think the crack of `cd` would be helpful for learners; later they will buy the cocaine of `deploy.all PROD`. PLEASE PLEASE?)
 
