@@ -1,10 +1,12 @@
-# A Unison REPL, 2D-Coding, and Vertical Scrolling Begone
+# REPLizing Unison, 2D-Coding, Death to Vertical Scrolling, and Salvaging `cd`
 
-*This is version 0 of the description, quickly put together in defense of the `cd` command in `ucm`. Updates and more background incoming.*
+*This is version 0 of the description, quickly put together in defense of the `cd` command in Unison's codebase manager `ucm`. Updates and more background incoming.*
 
-*We use `ucm` 0.5.25. Code here still breaks easily on version changes.*
+`ucm`, the Unison codebase manager, has recently deprecated the useful `cd` command -- yet that command had made the wrapper scripts here simpler, as the current "dir" or namespace is handled by the codebase manager (and thus mostly avoids having to use stanzas). The irony of asking the functional Unison crew to un-deprecate `cd` and to keep handling this state is not lost..
 
-*The code below is in bash_scripts. Ignore the old Julia code in the other dirs for now; it still uses stanzas..*
+- *We use `ucm` 0.5.25. Code here still breaks easily on version changes.*
+
+- *The code below is in bash_scripts. Ignore the old Julia code in the other dirs for now; it still uses stanzas..*
 
 <br>
 
@@ -154,9 +156,9 @@ u> sqr 2
 
 ## Unison in Our Nutshell
 
-Unison has a clever way of enumerating (Gödel-like) code. This frees the layer of human-readable names from indexing and referencing code, to serving but one master -- the human. We can finally name and re-name galore! (One-time unit testing, distributed systems, never-broken codebases of course are also nice to have, but NAMING, my Gods..)
+Unison has a clever (Gödel-like) way of enumerating code. This frees the layer of human-readable names from indexing and referencing code, to serving but one master -- the human. We can finally name and re-name galore! (One-time unit testing, distributed systems, never-broken codebases of course are also nice to have, but NAMING, my Gods..)
 
-The structure of terms in Unison namespaces is ideal for using the file system metaphors. Unison can leverage million-ennia of developers' muscle memory.
+The structure of terms in Unison namespaces is ideal for using the file system metaphors. Unison can leverage million-ennia of developers' muscle memory training.
 
 <br>
 <br>
