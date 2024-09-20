@@ -101,7 +101,7 @@ Finds Unison terms.
 "
 (( $# == 0 ))  &&  uexit
 
-# TODO pipe breaks with, eg, '| head -n5'; that's why we use cat reduntantly
+# TODO pipe breaks with, eg, '| head -n5'; that's why we use cat redundantly
 echo "find-in.all $@" | _ucm0 | deprompt.sh > ufind.stdout  &&  cat ufind.stdout
 ```
 
