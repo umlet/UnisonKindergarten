@@ -22,14 +22,41 @@ main _ =
 Hello, Laura and Sally!
 ```
 
-(`uniscripy.py` is a single-file Python tool without dependencies; just put it in your PATH. Should work on Linux-y systems; tested on WSL.)
+
+## How?
+
+1. When a *newly-created* script is run, a template Unison codebase is created, and libbase is installed there. This step is expensive (up to 30 secs). Crucially, however, if the script is *edited and re-run*, this step can be skipped -- the template already exists!
+
+2. The script (any file name extension allowed) is then copied and slightly modified: a potential shebang-line (invalid Unison) is "`--`"-commented out; and a "canary" function that just prints a random string is added.
+
+3. This code is then `add`ed to a live copy of the libbase codebase; the canary function is run to detect successful parsing.
+
+4. The `main` function in the live codebase is compiled; the user alerted if it is not found.
+
+5. Finally, the compiled script's main function is called with any command line arguments.
+
+(All steps only execute if needed, in make-fashion.)
+
+
+## Install and Config
+
+`uniscripy.py` is a single-file Python tool without dependencies; just put it in your PATH. It should work on Linux-y systems; for now tested on WSL.
+
+You can easily edit some configuration options in the source:
+* Set `errorexit` to values different from 125, if that `uniscript.py` default error exit code clashes with exit codes in your Unison script.
+* Set `verbose` to `True` to get info-outputs about the sequence of make-rules.
+
+
+## Why?
+
+* Quickly scrabbling together of few LOCs without worrying about codebases and base lib installs can possibly help some newbies (like me) play with and learn Unison.
+
+* Between UCM and scratch files, or between `run`s and watch expressions, there's quite some codebase "state" to mentally handle; scripts are stupidly stateless.
+
+* Actually though, it's mainly for fun with the LEGO-aspect of stitching together command line tools; I find languages great that play nice with these olden ways.
 
 
 
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
