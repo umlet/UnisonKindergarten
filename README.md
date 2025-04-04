@@ -1,3 +1,49 @@
+# Quick Command Line Scripts in Unison
+
+Ok, finally back at playing with Unison. (The REPL project below is again a work-in-progress; for now to something different.)
+
+`uniscript.py` lets you run Unison code seamlessly as command line scripts:
+
+```
+> cat myscript.u
+#!/usr/bin/env uniscript.py
+
+main : '{IO, Exception} Unit
+
+main _ =
+  use Text ++
+  args : [Text]
+  args = getArgs()
+  printLine ("Hello, " ++ Text.join " and " args ++ "!")
+```
+
+```
+> myscript.u  Laura  Sally
+Hello, Laura and Sally!
+```
+
+(`uniscripy.py` is a single-file Python tool without dependencies; just put it in your PATH. Should work on Linux-y systems; tested on WSL.)
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+*(Below another, related Unison REPL project; we will update this section soon.)*
+
+<br>
+<br>
+<br>
+
+
 # REPLizing Unison, 2D-Coding, Death to Vertical Scrolling, and Salvaging `cd`
 
 *This is version 0 of the description, quickly put together in defense of the `cd` command in Unison's codebase manager `ucm`. Updates and more background incoming.*
