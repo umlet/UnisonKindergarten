@@ -29,7 +29,7 @@ Hello, Laura and Sally!
 
 2. The script (any file name extension allowed) is then copied and slightly modified: a potential shebang-line (invalid Unison) is "`--`"-commented out; and a "canary" function that just prints a random string is added.
 
-3. This code is then `add`ed to a live copy of the libbase codebase; the canary function is run to detect successful parsing.
+3. This code is then `add`ed to a copy of the libbase codebase; the canary function is run to detect successful parsing.
 
 4. The `main` function in the live codebase is compiled; the user alerted if it is not found.
 
@@ -53,8 +53,13 @@ You can easily edit some configuration options in the source:
 
 * Between UCM and scratch files, or between `run`s and watch expressions, there's quite some codebase "state" to mentally handle; scripts are stupidly stateless.
 
-* Actually though, it's mainly for fun with the LEGO-aspect of stitching together command line tools; I find languages great that play nice with these olden ways.
+* Actually though, it's mainly for fun with the LEGO-aspect of stitching together command line tools; we find languages great that play nice with these olden ways.
 
+
+## Wishes!
+Please let us know about any issues with the tool -- and try to break it!
+
+(To the UCM developers -- we would still highly appreciate to be able to turn off ANSI color codes in the UCM, e.g., via honoring the NO_COLORS env variable, (they are a horror to parse); and any of `--no-unicode`, `--no-hints`, `--no-banner`, `--no-prompt`, `--no-linebreaks` or `--output-machine`. And as always, we'd like to put a good word in for our dear friend, the `cd` command in UCM. Thanks!)
 
 
 <br>
