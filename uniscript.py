@@ -123,7 +123,8 @@ def modify_script(targ, dep):
     ls.append(""); ls.append(""); ls.append(""); ls.append("")
     ls.append("-- premain is called before main to signal end of UCM header/hint/etc. output")
     ls.append(  "premain_ee0870f370bd4b018594b3eb1e796594 _ =")
-    ls.append("""  printLine ("Hello, df881bc3422e4a37a24ee84694d57934 !")""")
+    ls.append("""  use Text ++  """)
+    ls.append("""  printLine ("Hello, df881bc3422e4a37" ++ "a24ee84694d57934 !")  """)
     ls2file(ls, targ)
 
 def check_parse(fname_stdout, cb_dir_to_delete):  # does nothing or raises exception
